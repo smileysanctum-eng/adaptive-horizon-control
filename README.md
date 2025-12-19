@@ -1,5 +1,5 @@
 # Adaptive Horizon Control: Probabilistic Phase Stabilization
-
+![Phase Error vs Precision](image_488544.png)
 > **"Peace through Knowledge."** > A standard for stabilizing the physical world using the digital one.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Status](https://img.shields.io/badge/status-research_preview-orange) ![Platform](https://img.shields.io/badge/platform-Google_Cloud_%7C_Python-green)
