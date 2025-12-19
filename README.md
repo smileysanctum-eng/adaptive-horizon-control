@@ -32,6 +32,27 @@ The **Jacobian Matrix ($J$)** translates the abstract "Phase Error" into concret
 $$\Delta \mathbf{q} \approx J^{\dagger} \Delta \mathbf{x}_{pred}$$
 Where $J^{\dagger}$ is the pseudo-inverse, mapping the required phase correction back to the specific motor voltages needed to achieve it.
 
+
+---
+
+## 🚀 Usage
+```python
+from adaptive_horizon import JacobianController, HMM_Predictor
+
+# Initialize the Physics Model
+controller = JacobianController(dof=3) # 3 Degrees of Freedom
+predictor = HMM_Predictor(model_path='noise_models/thermal_v1.h5')
+
+# Run Control Loop
+while observing:
+    current_phase = get_diFX_stream()
+    predicted_noise = predictor.forecast_next(current_phase)
+    
+    # Calculate counter-move
+    actuator_command = controller.solve_inverse_kinematics(predicted_noise)
+    
+    apply_voltage(actuator_command)
+    
 ---
 
 ## 🚀 Getting Started
